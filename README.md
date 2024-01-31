@@ -10,5 +10,5 @@ This is a simple client-side JavaScript application.
 - In case there is a wind.css error. Run: `npx tailwindcss -i src/styles.css -o src/wind.css --watch` and close it after successful build
 
 ## If I had extra time
-- I can write rspec test cases.
+- I can write JEST test cases.
 - Improvements in UI/UX.
