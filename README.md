@@ -1,8 +1,7 @@
 # Blinkist Test Project
 This is a simple client-side JavaScript application.
 ## Requirements
-- Ruby 2.6.3
-- Rails 6.0.3.6
+- Node 14.18.2
 ## Database
 - Postgres 13.2
 ## Installation steps
