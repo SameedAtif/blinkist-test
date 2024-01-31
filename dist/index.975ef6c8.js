@@ -634,212 +634,7 @@ $(document).ready(()=>{
     });
 });
 
-},{"./analytics-api.js":"gDoxF","./styles.css":"lW6qc","uuid":"j4KJi","js-cookie":"c8bBu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","jquery":"hgMhh","./constants.js":"3huJa","./helpers.js":"ecN5O"}],"gDoxF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "trackPageview", ()=>trackPageview);
-parcelHelpers.export(exports, "trackEvent", ()=>trackEvent);
-const handleClickEvent = (jsonArray, clickEventData)=>{
-    try {
-        const { visitorId, assignedVariation } = clickEventData;
-        if (!jsonArray[assignedVariation]) jsonArray[assignedVariation] = {
-            users: {}
-        };
-        if (!jsonArray[assignedVariation].users[visitorId]) jsonArray[assignedVariation].users[visitorId] = {
-            clicks: [],
-            views: []
-        };
-        jsonArray[assignedVariation].users[visitorId].clicks.push(clickEventData);
-        return jsonArray;
-    } catch (error) {
-        console.error("Error handling click event:", error.message);
-        return jsonArray;
-    }
-};
-const handlePageView = (jsonArray, pageViewData)=>{
-    try {
-        const { visitorId, assignedVariation } = pageViewData;
-        if (!jsonArray[assignedVariation]) jsonArray[assignedVariation] = {
-            users: {}
-        };
-        if (!jsonArray[assignedVariation].users[visitorId]) jsonArray[assignedVariation].users[visitorId] = {
-            clicks: [],
-            views: []
-        };
-        jsonArray[assignedVariation].users[visitorId].views.push(pageViewData);
-        return jsonArray;
-    } catch (error) {
-        console.error("Error handling click event:", error.message);
-        return jsonArray;
-    }
-};
-const trackPageview = (params)=>{
-    console.log(`--> Tracking Pageview: ${params}`);
-    // const usersData = readUsersJson() || {}; --> Get Hosted data
-    const newUserData = handlePageView({}, params); // or Send the params to the backend server.
-    console.log("data stored", newUserData);
-};
-const trackEvent = (params)=>{
-    console.log(`--> Tracking Event: ${params}`);
-    // const usersData = readUsersJson() || {}; --> Get Hosted data
-    const newUserData = handleClickEvent({}, params); // or Send the params to the backend server.
-    console.log("data stored", newUserData);
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"lW6qc":[function() {},{}],"j4KJi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "v1", ()=>(0, _v1JsDefault.default));
-parcelHelpers.export(exports, "v3", ()=>(0, _v3JsDefault.default));
-parcelHelpers.export(exports, "v4", ()=>(0, _v4JsDefault.default));
-parcelHelpers.export(exports, "v5", ()=>(0, _v5JsDefault.default));
-parcelHelpers.export(exports, "NIL", ()=>(0, _nilJsDefault.default));
-parcelHelpers.export(exports, "version", ()=>(0, _versionJsDefault.default));
-parcelHelpers.export(exports, "validate", ()=>(0, _validateJsDefault.default));
-parcelHelpers.export(exports, "stringify", ()=>(0, _stringifyJsDefault.default));
-parcelHelpers.export(exports, "parse", ()=>(0, _parseJsDefault.default));
-var _v1Js = require("./v1.js");
-var _v1JsDefault = parcelHelpers.interopDefault(_v1Js);
-var _v3Js = require("./v3.js");
-var _v3JsDefault = parcelHelpers.interopDefault(_v3Js);
-var _v4Js = require("./v4.js");
-var _v4JsDefault = parcelHelpers.interopDefault(_v4Js);
-var _v5Js = require("./v5.js");
-var _v5JsDefault = parcelHelpers.interopDefault(_v5Js);
-var _nilJs = require("./nil.js");
-var _nilJsDefault = parcelHelpers.interopDefault(_nilJs);
-var _versionJs = require("./version.js");
-var _versionJsDefault = parcelHelpers.interopDefault(_versionJs);
-var _validateJs = require("./validate.js");
-var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
-var _stringifyJs = require("./stringify.js");
-var _stringifyJsDefault = parcelHelpers.interopDefault(_stringifyJs);
-var _parseJs = require("./parse.js");
-var _parseJsDefault = parcelHelpers.interopDefault(_parseJs);
-
-},{"./v1.js":false,"./v3.js":false,"./v4.js":"8zJtu","./v5.js":false,"./nil.js":false,"./version.js":false,"./validate.js":false,"./stringify.js":false,"./parse.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8zJtu":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _nativeJs = require("./native.js");
-var _nativeJsDefault = parcelHelpers.interopDefault(_nativeJs);
-var _rngJs = require("./rng.js");
-var _rngJsDefault = parcelHelpers.interopDefault(_rngJs);
-var _stringifyJs = require("./stringify.js");
-function v4(options, buf, offset) {
-    if ((0, _nativeJsDefault.default).randomUUID && !buf && !options) return (0, _nativeJsDefault.default).randomUUID();
-    options = options || {};
-    const rnds = options.random || (options.rng || (0, _rngJsDefault.default))(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-    rnds[6] = rnds[6] & 0x0f | 0x40;
-    rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-    if (buf) {
-        offset = offset || 0;
-        for(let i = 0; i < 16; ++i)buf[offset + i] = rnds[i];
-        return buf;
-    }
-    return (0, _stringifyJs.unsafeStringify)(rnds);
-}
-exports.default = v4;
-
-},{"./native.js":"lYayS","./rng.js":"2psyE","./stringify.js":"5Y9F1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lYayS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-const randomUUID = typeof crypto !== "undefined" && crypto.randomUUID && crypto.randomUUID.bind(crypto);
-exports.default = {
-    randomUUID
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2psyE":[function(require,module,exports) {
-// Unique ID creation requires a high quality random # generator. In the browser we therefore
-// require the crypto API and do not support built-in fallback to lower quality random number
-// generators (like Math.random()).
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>rng);
-let getRandomValues;
-const rnds8 = new Uint8Array(16);
-function rng() {
-    // lazy load so that environments that need to polyfill have a chance to do so
-    if (!getRandomValues) {
-        // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
-        getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
-        if (!getRandomValues) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-    }
-    return getRandomValues(rnds8);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Y9F1":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "unsafeStringify", ()=>unsafeStringify);
-var _validateJs = require("./validate.js");
-var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */ const byteToHex = [];
-for(let i = 0; i < 256; ++i)byteToHex.push((i + 0x100).toString(16).slice(1));
-function unsafeStringify(arr, offset = 0) {
-    // Note: Be careful editing this code!  It's been tuned for performance
-    // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-    return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
-}
-function stringify(arr, offset = 0) {
-    const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
-    // of the following:
-    // - One or more input array values don't map to a hex octet (leading to
-    // "undefined" in the uuid)
-    // - Invalid input values for the RFC `version` or `variant` fields
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Stringified UUID is invalid");
-    return uuid;
-}
-exports.default = stringify;
-
-},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eHPgI":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _regexJs = require("./regex.js");
-var _regexJsDefault = parcelHelpers.interopDefault(_regexJs);
-function validate(uuid) {
-    return typeof uuid === "string" && (0, _regexJsDefault.default).test(uuid);
-}
-exports.default = validate;
-
-},{"./regex.js":"bUa5g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bUa5g":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-exports.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c8bBu":[function(require,module,exports) {
+},{"./styles.css":"lW6qc","js-cookie":"c8bBu","jquery":"hgMhh","uuid":"j4KJi","./helpers.js":"ecN5O","./constants.js":"3huJa","./analytics-api.js":"gDoxF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lW6qc":[function() {},{}],"c8bBu":[function(require,module,exports) {
 (function(global, factory) {
     module.exports = factory();
 })(this, function() {
@@ -7630,15 +7425,158 @@ exports.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3
     return jQuery;
 });
 
-},{}],"3huJa":[function(require,module,exports) {
+},{}],"j4KJi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "VISITOR_COOKIE_NAME", ()=>VISITOR_COOKIE_NAME);
-parcelHelpers.export(exports, "VIEW_ID_NAME", ()=>VIEW_ID_NAME);
-parcelHelpers.export(exports, "EVENT_ID_NAME", ()=>EVENT_ID_NAME);
-const VISITOR_COOKIE_NAME = "blinkist_visitor";
-const VIEW_ID_NAME = "blinkist_view";
-const EVENT_ID_NAME = "blinkist_click_event";
+parcelHelpers.export(exports, "v1", ()=>(0, _v1JsDefault.default));
+parcelHelpers.export(exports, "v3", ()=>(0, _v3JsDefault.default));
+parcelHelpers.export(exports, "v4", ()=>(0, _v4JsDefault.default));
+parcelHelpers.export(exports, "v5", ()=>(0, _v5JsDefault.default));
+parcelHelpers.export(exports, "NIL", ()=>(0, _nilJsDefault.default));
+parcelHelpers.export(exports, "version", ()=>(0, _versionJsDefault.default));
+parcelHelpers.export(exports, "validate", ()=>(0, _validateJsDefault.default));
+parcelHelpers.export(exports, "stringify", ()=>(0, _stringifyJsDefault.default));
+parcelHelpers.export(exports, "parse", ()=>(0, _parseJsDefault.default));
+var _v1Js = require("./v1.js");
+var _v1JsDefault = parcelHelpers.interopDefault(_v1Js);
+var _v3Js = require("./v3.js");
+var _v3JsDefault = parcelHelpers.interopDefault(_v3Js);
+var _v4Js = require("./v4.js");
+var _v4JsDefault = parcelHelpers.interopDefault(_v4Js);
+var _v5Js = require("./v5.js");
+var _v5JsDefault = parcelHelpers.interopDefault(_v5Js);
+var _nilJs = require("./nil.js");
+var _nilJsDefault = parcelHelpers.interopDefault(_nilJs);
+var _versionJs = require("./version.js");
+var _versionJsDefault = parcelHelpers.interopDefault(_versionJs);
+var _validateJs = require("./validate.js");
+var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
+var _stringifyJs = require("./stringify.js");
+var _stringifyJsDefault = parcelHelpers.interopDefault(_stringifyJs);
+var _parseJs = require("./parse.js");
+var _parseJsDefault = parcelHelpers.interopDefault(_parseJs);
+
+},{"./v1.js":false,"./v3.js":false,"./v4.js":"8zJtu","./v5.js":false,"./nil.js":false,"./version.js":false,"./validate.js":false,"./stringify.js":false,"./parse.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8zJtu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _nativeJs = require("./native.js");
+var _nativeJsDefault = parcelHelpers.interopDefault(_nativeJs);
+var _rngJs = require("./rng.js");
+var _rngJsDefault = parcelHelpers.interopDefault(_rngJs);
+var _stringifyJs = require("./stringify.js");
+function v4(options, buf, offset) {
+    if ((0, _nativeJsDefault.default).randomUUID && !buf && !options) return (0, _nativeJsDefault.default).randomUUID();
+    options = options || {};
+    const rnds = options.random || (options.rng || (0, _rngJsDefault.default))(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+    rnds[6] = rnds[6] & 0x0f | 0x40;
+    rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+    if (buf) {
+        offset = offset || 0;
+        for(let i = 0; i < 16; ++i)buf[offset + i] = rnds[i];
+        return buf;
+    }
+    return (0, _stringifyJs.unsafeStringify)(rnds);
+}
+exports.default = v4;
+
+},{"./native.js":"lYayS","./rng.js":"2psyE","./stringify.js":"5Y9F1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lYayS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+const randomUUID = typeof crypto !== "undefined" && crypto.randomUUID && crypto.randomUUID.bind(crypto);
+exports.default = {
+    randomUUID
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"2psyE":[function(require,module,exports) {
+// Unique ID creation requires a high quality random # generator. In the browser we therefore
+// require the crypto API and do not support built-in fallback to lower quality random number
+// generators (like Math.random()).
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>rng);
+let getRandomValues;
+const rnds8 = new Uint8Array(16);
+function rng() {
+    // lazy load so that environments that need to polyfill have a chance to do so
+    if (!getRandomValues) {
+        // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
+        getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
+        if (!getRandomValues) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+    }
+    return getRandomValues(rnds8);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Y9F1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "unsafeStringify", ()=>unsafeStringify);
+var _validateJs = require("./validate.js");
+var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */ const byteToHex = [];
+for(let i = 0; i < 256; ++i)byteToHex.push((i + 0x100).toString(16).slice(1));
+function unsafeStringify(arr, offset = 0) {
+    // Note: Be careful editing this code!  It's been tuned for performance
+    // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+    return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
+}
+function stringify(arr, offset = 0) {
+    const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
+    // of the following:
+    // - One or more input array values don't map to a hex octet (leading to
+    // "undefined" in the uuid)
+    // - Invalid input values for the RFC `version` or `variant` fields
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Stringified UUID is invalid");
+    return uuid;
+}
+exports.default = stringify;
+
+},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eHPgI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _regexJs = require("./regex.js");
+var _regexJsDefault = parcelHelpers.interopDefault(_regexJs);
+function validate(uuid) {
+    return typeof uuid === "string" && (0, _regexJsDefault.default).test(uuid);
+}
+exports.default = validate;
+
+},{"./regex.js":"bUa5g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bUa5g":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ecN5O":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -7646,6 +7584,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getRandomVariation", ()=>getRandomVariation);
 parcelHelpers.export(exports, "getCookie", ()=>getCookie);
 parcelHelpers.export(exports, "createOrReadCookie", ()=>createOrReadCookie);
+var _uuid = require("uuid");
 var _constants = require("./constants");
 const getRandomVariation = ()=>Math.random() < 0.5 ? "control-variation" : "test-variation";
 const getCookie = ()=>{
@@ -7659,7 +7598,7 @@ const getCookie = ()=>{
 const createOrReadCookie = ()=>{
     let variation = getCookie();
     if (!variation) {
-        visitId = `${0, _constants.VISITOR_COOKIE_NAME}_${uuidv4()}`;
+        visitId = `${0, _constants.VISITOR_COOKIE_NAME}_${(0, _uuid.v4)()}`;
         assignedVariation = getRandomVariation();
         Cookies.set(visitId, assignedVariation); // Expires in 1 day
         return [
@@ -7670,6 +7609,68 @@ const createOrReadCookie = ()=>{
     return variation.split("=");
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./constants":"3huJa"}]},["4rkIz","8lqZg"], "8lqZg", "parcelRequireffeb")
+},{"./constants":"3huJa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","uuid":"j4KJi"}],"3huJa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "VISITOR_COOKIE_NAME", ()=>VISITOR_COOKIE_NAME);
+parcelHelpers.export(exports, "VIEW_ID_NAME", ()=>VIEW_ID_NAME);
+parcelHelpers.export(exports, "EVENT_ID_NAME", ()=>EVENT_ID_NAME);
+const VISITOR_COOKIE_NAME = "blinkist_visitor";
+const VIEW_ID_NAME = "blinkist_view";
+const EVENT_ID_NAME = "blinkist_click_event";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gDoxF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "trackPageview", ()=>trackPageview);
+parcelHelpers.export(exports, "trackEvent", ()=>trackEvent);
+const handleClickEvent = (jsonArray, clickEventData)=>{
+    try {
+        const { visitorId, assignedVariation } = clickEventData;
+        if (!jsonArray[assignedVariation]) jsonArray[assignedVariation] = {
+            users: {}
+        };
+        if (!jsonArray[assignedVariation].users[visitorId]) jsonArray[assignedVariation].users[visitorId] = {
+            clicks: [],
+            views: []
+        };
+        jsonArray[assignedVariation].users[visitorId].clicks.push(clickEventData);
+        return jsonArray;
+    } catch (error) {
+        console.error("Error handling click event:", error.message);
+        return jsonArray;
+    }
+};
+const handlePageView = (jsonArray, pageViewData)=>{
+    try {
+        const { visitorId, assignedVariation } = pageViewData;
+        if (!jsonArray[assignedVariation]) jsonArray[assignedVariation] = {
+            users: {}
+        };
+        if (!jsonArray[assignedVariation].users[visitorId]) jsonArray[assignedVariation].users[visitorId] = {
+            clicks: [],
+            views: []
+        };
+        jsonArray[assignedVariation].users[visitorId].views.push(pageViewData);
+        return jsonArray;
+    } catch (error) {
+        console.error("Error handling click event:", error.message);
+        return jsonArray;
+    }
+};
+const trackPageview = (params)=>{
+    console.log(`--> Tracking Pageview: ${params}`);
+    // const usersData = readUsersJson() || {}; --> Get Hosted data
+    const newUserData = handlePageView({}, params); // or Send the params to the backend server.
+    console.log("data stored", newUserData);
+};
+const trackEvent = (params)=>{
+    console.log(`--> Tracking Event: ${params}`);
+    // const usersData = readUsersJson() || {}; --> Get Hosted data
+    const newUserData = handleClickEvent({}, params); // or Send the params to the backend server.
+    console.log("data stored", newUserData);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["4rkIz","8lqZg"], "8lqZg", "parcelRequireffeb")
 
 //# sourceMappingURL=index.975ef6c8.js.map

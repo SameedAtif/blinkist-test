@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import { VISITOR_COOKIE_NAME } from './constants';
 
 export const getRandomVariation = () => Math.random() < 0.5 ? 'control-variation' : 'test-variation';
