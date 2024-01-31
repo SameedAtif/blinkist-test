@@ -7598,8 +7598,8 @@ const getCookie = ()=>{
 const createOrReadCookie = ()=>{
     let variation = getCookie();
     if (!variation) {
-        visitId = `${0, _constants.VISITOR_COOKIE_NAME}_${(0, _uuid.v4)()}`;
-        assignedVariation = getRandomVariation();
+        const visitId = `${(0, _constants.VISITOR_COOKIE_NAME)}_${(0, _uuid.v4)()}`;
+        const assignedVariation = getRandomVariation();
         Cookies.set(visitId, assignedVariation); // Expires in 1 day
         return [
             visitId,
