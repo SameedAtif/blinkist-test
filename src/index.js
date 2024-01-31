@@ -2,7 +2,7 @@ import "./styles.css";
 import jquery from "jquery";
 import { v4 as uuidv4 } from 'uuid';
 
-import { createOrReadCookie, getCookie } from './helpers.js';
+import { createOrReadCookie } from './helpers.js';
 import { VIEW_ID_NAME, EVENT_ID_NAME } from './constants.js';
 import { trackPageview, trackEvent } from "./analytics-api.js";
 
