@@ -1,5 +1,4 @@
 import "./styles.css";
-import Cookies from 'js-cookie'
 import jquery from "jquery";
 import { v4 as uuidv4 } from 'uuid';
 
