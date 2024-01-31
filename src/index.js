@@ -35,7 +35,6 @@ const storeUniqueVisit = (assignedVariation) => {
     visitorId: assignedVariation[0],
     assignedVariation: assignedVariation[1]
   };
-  console.log('pageView', pageView)
   trackPageview(pageView);
 }
 
@@ -46,7 +45,6 @@ const handleClickEvent = (assignedVariation) => {
     visitorId: assignedVariation[0],
     assignedVariation: assignedVariation[1]
   };
-  console.log('clickEvent', clickEvent)
   trackEvent(clickEvent);
 }
 
@@ -54,7 +52,7 @@ $(document).ready(() => {
   let assignedVariation = createOrReadCookie();
 
   $('#' + assignedVariation[1]).show();
-  if (window.performance.navigation.type !== 1 && getCookie() !== null) {
+  if (window.performance.navigation.type !== 1) {
     storeUniqueVisit(assignedVariation);
   }
 

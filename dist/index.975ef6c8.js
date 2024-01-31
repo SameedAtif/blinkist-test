@@ -613,7 +613,6 @@ exports.default = window.$ = window.jQuery = (0, _jqueryDefault.default);
         visitorId: assignedVariation[0],
         assignedVariation: assignedVariation[1]
     };
-    console.log("pageView", pageView);
     (0, _analyticsApiJs.trackPageview)(pageView);
 };
 const handleClickEvent = (assignedVariation)=>{
@@ -623,13 +622,12 @@ const handleClickEvent = (assignedVariation)=>{
         visitorId: assignedVariation[0],
         assignedVariation: assignedVariation[1]
     };
-    console.log("clickEvent", clickEvent);
     (0, _analyticsApiJs.trackEvent)(clickEvent);
 };
 $(document).ready(()=>{
     let assignedVariation = (0, _helpersJs.createOrReadCookie)();
     $("#" + assignedVariation[1]).show();
-    if (window.performance.navigation.type !== 1 && (0, _helpersJs.getCookie)() !== null) storeUniqueVisit(assignedVariation);
+    if (window.performance.navigation.type !== 1) storeUniqueVisit(assignedVariation);
     $("#sign-up-link").click(()=>{
         handleClickEvent(assignedVariation);
         window.location.href = "/signup";
